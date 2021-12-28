@@ -1,0 +1,18 @@
+{
+  "app_name": "TokenizeDemo",
+  "sign_in": "Sign in",
+  "sign_in_continue": "Please sign in to continue",
+  "email": "Email",
+  "password": "Password",
+  "remember_me": "Remember me",
+  "forgot_pass": "Forgot your password?",
+  "dont_have_acc": "Don’t have an account yet? ",
+  "sign_up": "Sign up",
+  "home": "Home",
+  "market": "Markets",
+  "wallets": "Wallets",
+  "portfolio": "Portfolio",
+  "more": "More",
+  "press_to_search": "Nhap de tim kiem",
+  "cancel": "huy"
+}
