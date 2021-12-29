@@ -1,6 +1,7 @@
 import { put, takeLatest, takeEvery, select, call, delay } from 'redux-saga/effects';
 import {
-    initMarketData
+    initMarketData,
+    responseSearchMarket
 } from './marketActions';
 import request from '../../api';
 import ApiService from '../../api/ApiService';
@@ -22,13 +23,29 @@ function* requestMarketData(action) {
         })
     );
 
-    yield put(initMarketData({markets: market.data, coinList: summaries.data}));
+    yield put(initMarketData({ markets: market.data, coinList: summaries.data }));
+}
+
+function* requestSearchData(action) {
+    let { search, coinMarket } = action.data;
+    let clone = Array.from(coinMarket);
+    let coins = clone.filter((obj) => {
+        return obj?.market?.toUpperCase().includes(search.toUpperCase());
+    });
+    // console.log('requestSearchData', search)
+
+    yield put(responseSearchMarket({ coinMarket: coins }));
 }
 
 function* getMarketData() {
     yield takeEvery('requestMarketData', requestMarketData);
 }
 
+function* searchMarketData() {
+    yield takeLatest('onSearchData', requestSearchData);
+}
+
 export {
     getMarketData,
+    searchMarketData
 };

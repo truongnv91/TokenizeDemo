@@ -25,15 +25,15 @@ const marketReducer = (state = initialState, action = {}) => {
                 coinMarket: coins,
             };
         }
-        case 'onSearchData': {
-            let { search } = action.data;
-            let clone = Array.from(state.coinMarket);
-            let coins = clone.filter((obj) => {
-                return obj?.market?.toUpperCase().includes(search.toUpperCase());
-            });
+        case 'responseSearchMarket': {
+            let { coinMarket } = action.data;
+            // let clone = Array.from(state.coinMarket);
+            // let coins = clone.filter((obj) => {
+            //     return obj?.market?.toUpperCase().includes(search.toUpperCase());
+            // });
             return {
                 ...state,
-                coinMarket: coins,
+                coinMarket,
             };
         }
         default: {

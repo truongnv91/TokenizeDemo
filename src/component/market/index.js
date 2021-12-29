@@ -61,10 +61,10 @@ class MarketScreen extends BaseComponent {
             <View style={styles.container}>
                 <HeaderSearchAnimateView
                     onChangeSearchText={this.onChangeSearchText} />
-                <SymbolTagView
+                {markets.length > 0 && <SymbolTagView
                     markets={markets}
                     idDefault={0}
-                    onItemSelect={this.onMarketSelected} />
+                    onItemSelect={this.onMarketSelected} />}
 
                 <FlatList
                     ItemSeparatorComponent={this._ItemSeparatorComponent}
@@ -96,9 +96,8 @@ class MarketScreen extends BaseComponent {
         }
     }
 
-    onChangeSearchText = (search) =>{
-        console.log('onChangeSearchText', search)
-        this.props.onSearchData({search})
+    onChangeSearchText = (search) => {
+        this.props.onSearchData({ search, coinMarket: this.props.coinMarket })
     }
 }
 

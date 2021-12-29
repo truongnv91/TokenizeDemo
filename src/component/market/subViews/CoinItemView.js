@@ -99,10 +99,11 @@ const styles = StyleSheet.create({
     },
     txt_price: {
         color: '#3D436C',
-        fontSize: fontSize(15)
+        fontSize: fontSize(15),
+        fontWeight: '700'
     },
     txt_percent: {
         fontSize: fontSize(13),
-        fontWeight: '300'
+        fontWeight: '500'
     }
 });
